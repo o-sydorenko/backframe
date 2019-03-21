@@ -1,0 +1,16 @@
+{
+  "name": "backframe",
+  "version": "2.0.0",
+  "description": "The new version of the same framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "backend",
+    "framework",
+    "backframe"
+  ],
+  "author": "Oleksandr Sydorenko",
+  "license": "ISC"
+}
