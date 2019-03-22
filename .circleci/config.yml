@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    working_directory: /usr/src/app
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g mocha'
+      - run:
+          name: test
+          command: npm test
