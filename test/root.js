@@ -15,6 +15,8 @@ describe(`Root tests`, () => {
     })
 
     it(`should create a new instance of Root`, () => {
-        strictEqual(true, new Root(null) instanceof Root)
+        const root = new Root(null)
+        strictEqual(true, root instanceof Root)
+        strictEqual(false, root.debugOn)
     })
 })

@@ -4,8 +4,9 @@ const EventEmitter = require('events').EventEmitter
 
 class Root extends EventEmitter {
 
-    constructor (parent) {
+    constructor (parent, debugOn) {
         super()
+        this.debugOn = Boolean(debugOn)
 
         if (!Root.validateParent(parent)) {
             throw new TypeError(`argument "parent" must be an instance of Root or null`)
@@ -27,6 +28,10 @@ class Root extends EventEmitter {
 
     static validateParent (parent) {
         return parent === null || parent instanceof Root
+    }
+
+    debug (...args) {
+        console.log(this.type || '', ...args)
     }
 
     /**
