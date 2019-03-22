@@ -31,7 +31,7 @@ class Root extends EventEmitter {
     }
 
     debug (...args) {
-        console.log(this.type || '', ...args)
+        console.log(this.name || '', ...args)
     }
 
     /**
@@ -79,7 +79,7 @@ class Root extends EventEmitter {
     }
 
     /**
-     * @method setCondition
+     * @method getCondition
      * @description check single services condition
      * @returns {boolean}
      * */

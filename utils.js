@@ -1,7 +1,10 @@
 'use strict'
 
+const fs = require('fs')
+
 module.exports = {
     deserializeAuthentication,
+    removeSocketFile,
     serializeAuthentication
 }
 
@@ -24,6 +27,21 @@ function deserializeAuthentication (buf) {
         buf.readUInt16LE(9),
         buf.slice(11, buf.byteLength).toString()
     ]
+}
+
+/**
+ * @description delete the socket file before creating a new one
+ * @param {string} path - path to socket file
+ * */
+
+function removeSocketFile (path) {
+    if (fs.existsSync(path)) {
+        if (fs.accessSync(path, fs.constants.R_OK | fs.constants.W_OK) === void 0) {
+            return fs.unlinkSync(path)
+        }
+
+        throw new Error(`you have no rights to read file: ${path}`)
+    }
 }
 
 /**
